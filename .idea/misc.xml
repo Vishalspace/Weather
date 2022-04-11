@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Cache/ADSCode/Weather/app/src/main/res/drawable/gradient_bg.xml" value="0.3425" />
+        <entry key="..\:/Cache/ADSCode/Weather/app/src/main/res/drawable/gradient_bg_cold.xml" value="0.1105" />
+        <entry key="..\:/Cache/ADSCode/Weather/app/src/main/res/drawable/gradient_bg_hot.xml" value="0.352" />
+        <entry key="..\:/Cache/ADSCode/Weather/app/src/main/res/drawable/gradient_bg_morning_hot.xml" value="0.111" />
+        <entry key="..\:/Cache/ADSCode/Weather/app/src/main/res/drawable/gradient_bg_neutral.xml" value="0.315" />
+        <entry key="..\:/Cache/ADSCode/Weather/app/src/main/res/layout/activity_main.xml" value="0.35052083333333334" />
+        <entry key="..\:/Cache/ADSCode/Weather/app/src/main/res/layout/fragment_cities.xml" value="0.37552083333333336" />
+        <entry key="..\:/Cache/ADSCode/Weather/app/src/main/res/layout/fragment_cities_list.xml" value="0.25" />
+        <entry key="..\:/Cache/ADSCode/Weather/app/src/main/res/layout/fragment_nav_host_fragment.xml" value="0.37552083333333336" />
+        <entry key="..\:/Cache/ADSCode/Weather/app/src/main/res/layout/nav_host_fragment.xml" value="0.37552083333333336" />
+        <entry key="..\:/Cache/ADSCode/Weather/app/src/main/res/layout/weatherfragment.xml" value="0.35052083333333334" />
+        <entry key="..\:/Cache/ADSCode/Weather/app/src/main/res/menu/bottom_nav.xml" value="0.37552083333333336" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
