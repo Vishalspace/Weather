@@ -5,6 +5,7 @@ import android.app.Application
 import androidx.fragment.app.Fragment
 import com.weather.di.AppComponent
 import com.weather.di.ContextModule
+import com.weather.di.DaggerAppComponent
 import com.weather.di.NetModule
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable

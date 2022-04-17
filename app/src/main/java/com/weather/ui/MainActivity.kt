@@ -6,6 +6,7 @@ import com.weather.R
 import com.weather.utils.addTo
 import com.weather.api.AccuweatherApi
 import com.weather.utils.Logger
+import com.weather.utils.injector
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        injector().inject(this)
     }
 
     override fun onResume() {
