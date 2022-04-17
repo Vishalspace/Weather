@@ -12,22 +12,29 @@ import javax.inject.Singleton
 
 @Module
 class NetModule {
+
     @Provides
     @Singleton
-    fun provideAccuweatherApi(): AccuweatherApi {
+    fun provideRetrofit(): Retrofit {
         val interceptor = HttpLoggingInterceptor()
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
-        val retrofit = Retrofit.Builder()
+        return Retrofit.Builder()
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .baseUrl(BASE_URL)
             .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideAccuweatherApi(retrofit: Retrofit): AccuweatherApi {
         return retrofit.create(AccuweatherApi::class.java)
     }
 
     companion object {
+        //private const val BASE_URL = "http://dataservice.accuweather.com/currentconditions/v1/"
         private const val BASE_URL = "https://run.mocky.io/v3/"
     }
 }

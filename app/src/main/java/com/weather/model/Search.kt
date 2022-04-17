@@ -2,7 +2,7 @@ package com.weather.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Search_base (
+data class Searchbase (
 
     @SerializedName("Version")
     val version : Int,
