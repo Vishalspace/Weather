@@ -7,9 +7,10 @@ import retrofit2.http.GET
 
 //https://run.mocky.io/v3/86ec7a92-d0ea-4a22-8723-1a16e01eb02a
 
+//3572c577-3f4a-41bf-94aa-1bdc2e79a2b5
 interface AccuweatherApi {
     //Query generator
-    @GET("86ec7a92-d0ea-4a22-8723-1a16e01eb02a")
+    @GET("188413?apikey=%09hkGkNYitn3EM5H0XEWsJIdKYPLAahBKN&details=true")
     fun getWeather(): Single<DailyForecastsbase>
 
 //    fun getWeather(
@@ -23,11 +24,12 @@ interface AccuweatherApi {
 
 
 //search
-//http://dataservice.accuweather.com/locations/v1/search?apikey=hkGkNYitn3EM5H0XEWsJIdKYPLAahBKN&q=rewari
+//https://dataservice.accuweather.com/locations/v1/search?apikey=hkGkNYitn3EM5H0XEWsJIdKYPLAahBKN&q=rewari
 
 //accuweather
-//"http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=hkGkNYitn3EM5H0XEWsJIdKYPLAahBKN&q=rewa"
+//"https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=hkGkNYitn3EM5H0XEWsJIdKYPLAahBKN&q=rewa"
 
 //weather base
-//http://dataservice.accuweather.com/currentconditions/v1/188413?apikey=hkGkNYitn3EM5H0XEWsJIdKYPLAahBKN&details=true
+//https://dataservice.accuweather.com/currentconditions/v1/188413?apikey=hkGkNYitn3EM5H0XEWsJIdKYPLAahBKN&details=true
 
+//"http://dataservice.accuweather.com/forecasts/v1/daily/1day/188413?apikey=%09hkGkNYitn3EM5H0XEWsJIdKYPLAahBKN&details=true"

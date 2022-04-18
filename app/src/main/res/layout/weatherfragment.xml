@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.Navhostfragment"
     android:padding="25dp"
-    android:background="@drawable/gradient_bg_cold">
+    android:background="@drawable/gradient_bg_main">
     <RelativeLayout
         android:id="@+id/mainContainer"
         android:layout_width="match_parent"

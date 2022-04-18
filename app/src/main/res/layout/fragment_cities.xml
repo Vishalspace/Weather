@@ -7,7 +7,7 @@
     android:padding="5dp"
     android:elevation="10dp"
     android:layout_margin="2dp"
-    android:background="@drawable/gradient_bg_neutral">
+    android:background="@drawable/gradient_bg_main">
 
     <RelativeLayout
         android:id="@+id/mainContainer"
