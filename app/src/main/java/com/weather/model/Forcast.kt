@@ -21,10 +21,7 @@ data class DailyForecasts (
     @SerializedName("DegreeDaySummary") val degreeDaySummary : DegreeDaySummary,
     @SerializedName("AirAndPollen") val airAndPollen : List<AirAndPollen>,
     @SerializedName("Day") val day : Day,
-    @SerializedName("Night") val night : Night,
-    @SerializedName("Sources") val sources : List<String>,
-    @SerializedName("MobileLink") val mobileLink : String,
-    @SerializedName("Link") val link : String
+    @SerializedName("Night") val night : Night
 )
 
 data class Day (

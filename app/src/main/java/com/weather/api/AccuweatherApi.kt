@@ -1,6 +1,8 @@
 package com.weather.api
 
 
+
+import com.weather.model.CurrentWeather
 import com.weather.model.DailyForecastsbase
 import io.reactivex.Single
 import retrofit2.http.GET
@@ -10,13 +12,11 @@ import retrofit2.http.GET
 //3572c577-3f4a-41bf-94aa-1bdc2e79a2b5
 interface AccuweatherApi {
     //Query generator
-    @GET("188413?apikey=%09hkGkNYitn3EM5H0XEWsJIdKYPLAahBKN&details=true")
+    @GET("forecasts/v1/daily/1day/188413?apikey=7Of3weffiwTmoxZmXNClACNb99gZDpyr&details=true&metric=true")
     fun getWeather(): Single<DailyForecastsbase>
-
-//    fun getWeather(
-//        @Query("hkGkNYitn3EM5H0XEWsJIdKYPLAahBKN") api:String,
-//        @Query("locationKey") key: Int
-//    ): Call<DailyForecastsbase>
+//
+    @GET("currentconditions/v1/188413?apikey=7Of3weffiwTmoxZmXNClACNb99gZDpyr")
+    fun getCurrent() : Single<ArrayList<CurrentWeather>>
 
 }
 

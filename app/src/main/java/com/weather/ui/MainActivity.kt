@@ -7,6 +7,9 @@ import com.weather.R
 import com.weather.utils.addTo
 import com.weather.api.AccuweatherApi
 import com.weather.databinding.ActivityMainBinding
+import com.weather.model.CurrentWeather
+import com.weather.model.DailyForecastsbase
+
 import com.weather.utils.Logger
 import com.weather.utils.injector
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -23,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         injector().inject(this)
     }
@@ -31,6 +34,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         callApi()
+        callCApi()
     }
 
     private fun callApi() {
@@ -38,11 +42,39 @@ class MainActivity : AppCompatActivity() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { result ->
-                logger.debug("received response from api")
-                println("response: ${result}")
-                logger.debug(result.toString())
+                //logger.debug("response: ${result}")
+                updateData(result)
             }.addTo(compositeDisposable)
     }
+
+    private fun callCApi(){
+        api.getCurrent()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe{current ->
+                logger.debug("resp ${current}")
+               updateCurrent(current)
+            }.addTo(compositeDisposable)
+    }
+
+    private fun updateData(result: DailyForecastsbase) {
+        binding.headline.text = result.headline.text
+        binding.tempmin.text = result.dailyForecasts[0].temperature.minimum.value.toString()
+        binding.tempmax.text = result.dailyForecasts[0].temperature.maximum.value.toString()
+        binding.status.text = result.dailyForecasts[0].day.shortPhrase
+        binding.sunrise.text = result.dailyForecasts[0].sun.rise
+        binding.sunset.text = result.dailyForecasts[0].sun.set
+        binding.rain.text = result.dailyForecasts[0].day.rainProbability.toString()
+        binding.wind.text =result.dailyForecasts[0].day.wind.speed.value.toString()
+        binding.air.text = result.dailyForecasts[0].airAndPollen[0].value.toString()
+
+
+    }
+
+    private fun updateCurrent(currentWeather: ArrayList<CurrentWeather>){
+        binding.temp.text = currentWeather[0].temperaturec.metric.value.toString()
+    }
+
 
     override fun onPause() {
         compositeDisposable.clear()
