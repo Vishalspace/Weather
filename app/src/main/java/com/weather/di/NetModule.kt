@@ -34,7 +34,7 @@ class NetModule {
     }
 
     companion object {
-        //private const val BASE_URL = "http://dataservice.accuweather.com/currentconditions/v1/"
-        private const val BASE_URL = "https://dataservice.accuweather.com/"
+        private const val BASE_URL = "https://run.mocky.io/v3/"
+        //private const val BASE_URL = "https://dataservice.accuweather.com/"
     }
 }

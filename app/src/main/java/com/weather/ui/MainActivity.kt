@@ -3,12 +3,14 @@ package com.weather.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import com.weather.HourlyWeatherAdapter
 import com.weather.R
 import com.weather.utils.addTo
 import com.weather.api.AccuweatherApi
 import com.weather.databinding.ActivityMainBinding
 import com.weather.model.CurrentWeather
 import com.weather.model.DailyForecastsbase
+import com.weather.model.HourlyWeather
 
 import com.weather.utils.Logger
 import com.weather.utils.injector
@@ -34,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         callApi()
-        callCApi()
+        callCurrentApi()
     }
 
     private fun callApi() {
@@ -47,13 +49,23 @@ class MainActivity : AppCompatActivity() {
             }.addTo(compositeDisposable)
     }
 
-    private fun callCApi(){
+    private fun callCurrentApi(){
         api.getCurrent()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe{current ->
                 logger.debug("resp ${current}")
                updateCurrent(current)
+            }.addTo(compositeDisposable)
+    }
+
+    private fun callhourlyApi(){
+        api.gethourly()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { hourly ->
+                logger.debug("hourly ${hourly}")
+                updatehourly(hourly)
             }.addTo(compositeDisposable)
     }
 
@@ -71,6 +83,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun updatehourly(hourlyWeather: ArrayList<HourlyWeather>){
+        binding.hourlyrecycler.adapter
+    }
     private fun updateCurrent(currentWeather: ArrayList<CurrentWeather>){
         binding.temp.text = currentWeather[0].temperaturec.metric.value.toString()
     }
